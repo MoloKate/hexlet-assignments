@@ -2,12 +2,10 @@ package exercise;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 import java.util.TreeSet;
 
 // BEGIN
-class App{
+class App {
     public static void swapKeyValue(KeyValueStorage keyValueStorage) {
 
         var resultMap = keyValueStorage.toMap();
