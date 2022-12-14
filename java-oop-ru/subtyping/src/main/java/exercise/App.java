@@ -7,23 +7,9 @@ import java.util.TreeSet;
 // BEGIN
 class App {
     public static void swapKeyValue(KeyValueStorage keyValueStorage) {
-
-        var resultMap = keyValueStorage.toMap();
-        Map<String, String> clone = new HashMap<>();
-
-        TreeSet<String> keys = new TreeSet<>(resultMap.keySet());
-
-        for (String key: keys) {
-            clone.put(resultMap.get(key), key);
-        }
-        resultMap.putAll(clone);
-
-        TreeSet<String> keysAfter = new TreeSet<>(resultMap.keySet());
-
-        for (String key: keysAfter) {
-            if (!clone.containsKey(key)) {
-                resultMap.remove(key);
-            }
+        for (Map.Entry<String, String> map : keyValueStorage.toMap().entrySet()) {
+            keyValueStorage.unset(map.getKey());
+            keyValueStorage.set(map.getValue(), map.getKey());
         }
     }
 

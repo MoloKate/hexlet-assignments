@@ -24,7 +24,13 @@ class InMemoryKV implements KeyValueStorage {
 
     @Override
     public String get(String key, String defaultValue) {
-        return database.getOrDefault(key, defaultValue);
+        //return database.getOrDefault(key, defaultValue);
+
+        if (database.containsKey(key)) {
+            return database.get(key);
+        } else {
+            return defaultValue;
+        }
     }
 
     @Override
